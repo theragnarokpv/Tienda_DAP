@@ -1,0 +1,46 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 may 2023, 19:53:58
+    Author     : Laboratorios
+*/
+h3{
+    text-align: center;
+    background-color: green;
+    color: yellow;
+}
+body{
+    background-color: bisque;
+}
+
+h2{
+    text-align: right;
+    background-color: brown;
+    color: white;
+}
+
+
+#aviso{
+    background-color: red;
+    color: white;
+   
+}
+
+.alerta{
+    background-color: bisque;
+    color: green;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background: black;
+    font-size: 22px;
+}
+
+a:hover{
+    color: black;
+    background: white;
+}
