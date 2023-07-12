@@ -52,4 +52,22 @@ public class ProductoServiceImpl implements ProductoService{
         productoDao.delete(producto);
     }
     
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaAmpliada (double precioI, double precioS){
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioI, precioS);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaConJPQL(double precioI, double precioS){
+        return productoDao.consultaConJPQL(precioI, precioS);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaConSQL(double precioI, double precioS){
+        return productoDao.consultaConSQL(precioI, precioS);
+    }
+    
 }
