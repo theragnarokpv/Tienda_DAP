@@ -47,12 +47,28 @@
                                 </ul>
                             </li>
                         </ul>
-                        
-                        <ul class="navbar-nav">
+
+                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                             <li class="nav-item">
-                                <a class="nav-link"  th:href="@{/login}">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                </a>
+                            <a class="nav-link"  th:href="@{/login}">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                            <li class="nav-item my-auto">
+                            <img src="@{${session.usuarioImagen}}" alt="alt" height="40" class="rounded-circle"/>
+                            <span sec:authentication="name">Santi </span>
+                            </li>
+
+                            <li class="nav-item my-auto">
+                                <form method="post" action="@[/logout}">
+                                    <button class="btn btn-dark">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>
+
+                                </form>
                             </li>
                         </ul>
 
