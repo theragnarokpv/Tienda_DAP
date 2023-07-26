@@ -22,10 +22,10 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="navbar-nav" sec:authorize="hasRole('ROLE ADMIN') or hasRole('ROLE VENDEDOR')">
+                        <ul class="navbar-nav" sec:authorize="hasRole('ADMIN') or hasRole('VENDEDOR')">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>                           
-                            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE ADMIN')">
+                            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
                                 <a class="nav-link dropdown-toggle" 
                                    data-bs-toggle="dropdown" 
                                    href="#" 
@@ -48,28 +48,26 @@
                             </li>
                         </ul>
 
-                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
-                            <li class="nav-item">
-                            <a class="nav-link"  th:href="@{/login}">
-                                <i class="fas fa-sign-in-alt"></i>
-                            </a>
-                            </li>
-                        </ul>
-
-                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
-                            <li class="nav-item my-auto">
-                            <img src="@{${session.usuarioImagen}}" alt="alt" height="40" class="rounded-circle"/>
-                            <span sec:authentication="name">Santi </span>
-                            </li>
-
-                            <li class="nav-item my-auto">
-                                <form method="post" action="@[/logout}">
-                                    <button class="btn btn-dark">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                    </button>
-
-                                </form>
-                            </li>
+                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">                            
+                            <li class="nav-item">                                
+                                <a class="nav-link" th:href="@{/login}">                                    
+                                    <i class="fas fa-sign-in-alt"></i>                                
+                                </a>                            
+                            </li>                        
+                        </ul>                           
+                        
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">                           
+                            <li class="nav-item text-white my-auto">                                
+                                <img th:src="@{${session.usuarioImagen}}" alt="Imágen del usuario" height="40"  class="rounded-circle"/> 
+                                <span sec:authentication="name">Santi</span>                            
+                            </li>                            
+                            <li class="nav-item my-auto">                                
+                                <form method="post" th:action="@{/logout}">                                    
+                                    <button class="btn btn-dark">                                        
+                                        <i class="fas fa-sign-out-alt"></i>                                    
+                                    </button>                                                                    
+                                </form>                            
+                            </li>                        
                         </ul>
 
                     </div>
